@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td{
+            width: 70px;
+            background-color:rgb(235, 240, 235);
+            border-radius: 4px;
+            box-shadow: 0px 5px 4px rgb(0, 0, 0);
+            transition: .1s;
+        }
+        td:hover{
+            background-color: rgb(172, 164, 164);
+            translate: 5px 5px;
+        }
+    </style>
+</head>
+<body style="background-color: rgb(35, 32, 32);">
+    <table  style="text-align: center;font-size:40px; color: rgb(35, 32, 32) ;translate: 0px 70px;margin: auto;font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">
+        <tr>
+            <td colspan="3" style="overflow: scroll;max-width: 210px;" id="show"></td>
+            <td onclick="clear()" id="clear">Claer</td>
+        </tr>
+        <tr>
+            <td onclick="bottonV(1)">1</td>
+            <td onclick="bottonV(2)">2</td>
+            <td onclick="bottonV(3)">3</td>
+            <td onclick="bottonV('+')">+</td>
+        </tr>
+        <tr>
+            <td onclick="bottonV(4)">4</td>
+            <td onclick="bottonV(5)">5</td>
+            <td onclick="bottonV(6)">6</td>
+            <td onclick="bottonV('-')">-</td>
+        </tr>
+        <tr>
+            <td onclick="bottonV(7)">7</td>
+            <td onclick="bottonV(8)">8</td>
+            <td onclick="bottonV(9)">9</td>
+            <td onclick="bottonV('*')">*</td>
+        </tr>
+        <tr>
+            <td onclick="bottonV('/')">/</td>
+            <td onclick="bottonV(0)">0</td>
+            <td onclick="bottonV('.')">.</td>
+            <td  id="sup">=</td>
+        </tr>
+    </table>
+    <script>
+        function bottonV(numV){
+            document.getElementById("show").innerHTML+=numV
+        }
+        function clear(){
+            // document.getElementById("show").innerHTML=`33`
+            document.getElementById("show").style.backgroundColor="red"
+        }
+        document.getElementById("clear").addEventListener("click",()=>{
+            document.getElementById("show").innerHTML=``
+            
+        })
+        document.getElementById("sup").addEventListener("click",()=>{
+            let x=document.getElementById("show").innerHTML
+            console.log(eval(x))
+            document.getElementById("show").innerHTML=eval(x)
+        })
+    </script>
+</body>
+</html>
